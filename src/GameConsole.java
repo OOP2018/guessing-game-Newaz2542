@@ -7,7 +7,9 @@ public class GameConsole {
 
 	/**
 	 * The play method plays a game using input from user.
-	 * @param game is a Constructors from NumberGame.
+	 * 
+	 * @param game
+	 *            is a Constructors from NumberGame.
 	 * @return the correct answer.
 	 */
 	public int play(NumberGame game) {
