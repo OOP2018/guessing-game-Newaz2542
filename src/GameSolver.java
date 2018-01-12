@@ -21,7 +21,6 @@ public class GameSolver {
 		boolean correct = false;
 		Random javis = new Random();
 		do {
-
 			guess = javis.nextInt(999) + 1;
 			correct = game.guess(guess);
 
