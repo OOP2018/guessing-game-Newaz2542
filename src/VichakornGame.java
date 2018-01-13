@@ -14,18 +14,20 @@ public class VichakornGame extends NumberGame {
 
 	/** Initialize a new default game. */
 	public VichakornGame() {
-		this(999);
+		this(100);
 	}
 
 	/**
 	 * properties of a guessing game.
-	 * @param upperbound is the max value for the secret number.
+	 * 
+	 * @param upperbound
+	 *            is the max value for the secret number.
 	 */
 	public VichakornGame(int upperBound) {
 		this.upperBound = upperBound;
 		long seed = System.nanoTime();
 		Random rand = new Random(seed);
-		this.secretNum = rand.nextInt(999) + 1;
+		this.secretNum = rand.nextInt(upperBound) + 1;
 		super.setMessage("I'm thinking of a number between 1 and 999");
 	}
 
@@ -39,15 +41,11 @@ public class VichakornGame extends NumberGame {
 			setMessage("WOW U DID IT CAN'T BELIVE");
 			count++;
 			return true;
-		}
-		if (secretNum - 6 <= number && number < secretNum || secretNum + 6 >= number && number > secretNum) {
-			setMessage("So close!");
-			count++;
 		} else if (number < secretNum) {
-			setMessage("Your number is to low");
+			setMessage("Your number is to small");
 			count++;
 		} else if (number > secretNum) {
-			setMessage("Your number is to high");
+			setMessage("Your number is to large");
 			count++;
 		}
 		return false;

@@ -15,17 +15,27 @@ public class GameSolver {
 	 *            is a Constructors from NumberGame.
 	 * @return the answer.
 	 */
-	public int play(NumberGame game) {
-
-		int guess = 0;
+	public int play(NumberGame javis) {
+		int upperbound = javis.getUpperBound();
+		int lowerbound = 1;
+		int mid = (lowerbound + (upperbound - lowerbound) / 2);
 		boolean correct = false;
-		Random javis = new Random();
-		do {
-			guess = javis.nextInt(999) + 1;
-			correct = game.guess(guess);
+		while (!correct) {
+			correct = javis.guess(mid);
+			if (correct) {
+				break;
+			} else {
 
-		} while (correct != true);
-		return guess;
+				if (javis.getMessage().toLowerCase().contains("small")) {
+					lowerbound = mid + 1;
+				} else if (javis.getMessage().toLowerCase().contains("large")) {
+					upperbound = mid - 1;
+				}
+				mid = (lowerbound + (upperbound - lowerbound) / 2);
+
+			}
+		}
+		return mid;
 	}
 
 }
