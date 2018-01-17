@@ -53,7 +53,7 @@ public class VichakornGame extends NumberGame {
 	}
 
 	/**
-	 * Return the round that has been played.
+	 * getCount is save the round that have been played.
 	 * 
 	 * @return count for show the round of player.
 	 */
@@ -62,7 +62,8 @@ public class VichakornGame extends NumberGame {
 	}
 
 	/**
-	 * Return the upperbound for the solution to this game.
+	 * Return the upperBound for the solution to this game.
+	 * @return value of maximum guess.
 	 */
 	public int getUpperBound() {
 		return upperBound;
@@ -70,6 +71,7 @@ public class VichakornGame extends NumberGame {
 
 	/**
 	 * Describe the game.
+	 * @return text that describe the game.
 	 */
 	@Override
 	public String toString() {

@@ -66,7 +66,10 @@ public class NumberGame {
 	public String toString() {
 		return "You should override this method for your game";
 	}
-
+	/**
+	 * getCount is create for inheritance. 
+	 * @return the default count on NumberGame.
+	 */
 	public int getCount() {
 		return 0;
 	}
