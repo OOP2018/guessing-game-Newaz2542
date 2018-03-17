@@ -10,9 +10,10 @@ public class GameConsole {
 	 * 
 	 * @param game
 	 *            is a Constructors from NumberGame.
+	 * @param answer 
 	 * @return the correct answer.
 	 */
-	public int play(NumberGame game) {
+	public int play(NumberGame game, int answer) {
 		Scanner console = new Scanner(System.in);
 
 		// describe the game
@@ -29,6 +30,7 @@ public class GameConsole {
 			System.out.println(game.getMessage());
 		} while (correct != true);
 		return guess;
+		
 	}
 
 }

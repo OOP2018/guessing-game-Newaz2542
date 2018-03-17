@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="524.0">
+         <top>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="600.0" text="Gussing Game" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Monospaced Regular" size="48.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+         </top>
+         <center>
+            <Label fx:id="label" style="-fx-border-color: black;" text="Your Answer" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="DilleniaUPC" size="47.0" />
+               </font>
+            </Label>
+         </center>
+         <bottom>
+            <TextField fx:id="textfield" onAction="#handleAnswer" prefHeight="25.0" prefWidth="452.0" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="200.0" right="200.0" />
+               </BorderPane.margin>
+            </TextField>
+         </bottom>
+      </BorderPane>
+      <Label prefHeight="14.0" prefWidth="140.0" text="**Numbe is between 1-555" textFill="RED">
+         <font>
+            <Font name="Cambria Math" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

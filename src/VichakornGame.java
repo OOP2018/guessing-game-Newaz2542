@@ -38,14 +38,14 @@ public class VichakornGame extends NumberGame {
 	 */
 	public boolean guess(int number) {
 		if (number == secretNum) {
-			setMessage("WOW U DID IT CAN'T BELIVE");
+			setMessage("WOW U DID IT CAN'T BELIEVE");
 			count++;
 			return true;
 		} else if (number < secretNum) {
-			setMessage("Your number is to small");
+			setMessage(number+" is to small");
 			count++;
 		} else if (number > secretNum) {
-			setMessage("Your number is to large");
+			setMessage(number+" number is to large");
 			count++;
 		}
 		return false;
