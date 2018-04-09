@@ -1,3 +1,5 @@
+package gameUI;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,7 +10,7 @@ import javafx.scene.control.TextField;
  *
  */
 public class GameController {
-	private NumberGame game ;
+	private NumberGame game = new VichakornGame() ;
 	private CounterView view ;
 	@FXML
 	TextField textfield;
@@ -16,15 +18,10 @@ public class GameController {
 	Label label;
 	@FXML
 	public void initialize() {
-		view.run();
 		label.setText("Your Answer");
 	}
-	/**
-	 * Set default of application
-	 */
-	public GameController(){
-		game = new VichakornGame(555);
-		view = new CounterView(game);
+	public void setGame(NumberGame game) {
+		this.game = game;
 	}
 	/**
 	 * When user have event on UI it'll run the guessing game.
@@ -37,8 +34,7 @@ public class GameController {
 			int ans = Integer.parseInt(text);
 			game.guess(ans);
 			label.setText(game.getMessage());
-			view.displayCount();
-		} catch (NumberFormatException ex) {
+			} catch (NumberFormatException ex) {
 			textfield.setText("Plese input number");
 			textfield.setStyle("-fx-text-inner-color: red;");
 		}

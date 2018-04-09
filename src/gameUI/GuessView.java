@@ -1,3 +1,4 @@
+package gameUI;
 import java.util.Observable;
 
 import javafx.geometry.Insets;
@@ -7,20 +8,17 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-/**
- * This class for create another window of application that show the user count of playing.
- * @author Vichakorn
- *
- */
-public class CounterView implements java.util.Observer {
+
+public class GuessView implements java.util.Observer {
 	private Stage stage;
 	private Label label;
 	private NumberGame game;
-	
-	public CounterView(NumberGame game) {
+
+	public GuessView(NumberGame game) {
 		this.game = game;
 		initComponents();
 	}
+
 	private void initComponents() {
 		stage = new Stage();
 		// components and containers for our window
@@ -32,7 +30,7 @@ public class CounterView implements java.util.Observer {
 		// The label that will show the counter value.
 		label = new Label("   ");
 		// make the label big enough
-		label.setPrefWidth(144);
+		label.setPrefWidth(250);
 		// TODO Make the text BIG. Use setFont to create a font.
 		// TODO Be careful to import the correct Font class (not java.awt.Font).
 		label.setFont(new Font("Arial", 80.0));
@@ -45,21 +43,22 @@ public class CounterView implements java.util.Observer {
 		// show the scene on the stage
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Count");
+		stage.setTitle("Guess");
 		stage.sizeToScene();
 	}
 
 	/** Show the window and update the counter value. */
 	public void run() {
 		stage.show();
-		displayCount();
+		displayGuess();
 	}
-	public void displayCount() {
-		label.setText( String.format("%2d", game.getCount()) );
+
+	public void displayGuess() {
+		label.setText( String.format("%2d", game.getGuess()));
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		displayCount();
-	}	
+		displayGuess();
+	}
 }

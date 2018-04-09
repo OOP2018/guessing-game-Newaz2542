@@ -1,3 +1,4 @@
+package gameUI;
 import java.util.Random;
 
 /*
@@ -11,6 +12,8 @@ public class VichakornGame extends NumberGame {
 	private int secretNum;
 	/** show round you done. */
 	private int count = 0;
+	/** your guess number. */
+	private int number = 0;
 
 	/** Initialize a new default game. */
 	public VichakornGame() {
@@ -37,9 +40,12 @@ public class VichakornGame extends NumberGame {
 	 * @return true if it is correct.
 	 */
 	public boolean guess(int number) {
+		this.number = number;
 		if (number == secretNum) {
 			setMessage("WOW U DID IT CAN'T BELIEVE");
 			count++;
+			setChanged();
+			notifyObservers();
 			return true;
 		} else if (number < secretNum) {
 			setMessage(number+" is to small");
@@ -48,6 +54,8 @@ public class VichakornGame extends NumberGame {
 			setMessage(number+" number is to large");
 			count++;
 		}
+		setChanged();
+		notifyObservers();
 		return false;
 
 	}
@@ -67,6 +75,10 @@ public class VichakornGame extends NumberGame {
 	 */
 	public int getUpperBound() {
 		return upperBound;
+	}
+	
+	public int getGuess() {
+		return number;
 	}
 
 	/**
